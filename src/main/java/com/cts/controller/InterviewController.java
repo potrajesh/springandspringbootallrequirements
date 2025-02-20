@@ -1,6 +1,7 @@
 package com.cts.controller;
 
 
+import java.io.File;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cts.dao.InterviewRepo;
 import com.cts.model.Interview;
 import com.cts.service.InterviewService;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class InterviewController {
@@ -34,7 +38,7 @@ public class InterviewController {
     
     @Autowired
     private InterviewRepo interviewRepo;
-    
+
     @PostMapping("saveinterview")
     public String saveInterview(@RequestBody Interview interview){
     	interviewService.save(interview);

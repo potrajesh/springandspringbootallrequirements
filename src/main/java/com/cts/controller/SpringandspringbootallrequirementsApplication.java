@@ -17,8 +17,6 @@ public class SpringandspringbootallrequirementsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringandspringbootallrequirementsApplication.class, args);
 		
-		
-		
 	}
 
 }

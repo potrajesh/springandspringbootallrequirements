@@ -29,11 +29,10 @@ public class InterviewRepositoryTest {
     void testSaveInterviewWithCandidates() {
         // Create interview
         Interview interview = new Interview();
-        interview.setInterviewId(1243);
-        interview.setCompanyName("Google");
+        interview.setCompanyName("cts");
         interview.setDate("2025-02-19");
-        interview.setFailedquestions("What is Spring Boot?");
-        interview.setAnswers("Spring Boot is a Java framework.");
+        interview.setFailedquestions("What is java?");
+        interview.setAnswers("having classes and objects.");
 
         // Create candidates
         Candidate candidate1 = new Candidate();
@@ -59,8 +58,7 @@ public class InterviewRepositoryTest {
     void testFindInterviewWithCandidates() {
         // Save interview with candidates first
         Interview interview = new Interview();
-        interview.setInterviewId(123);
-        interview.setCompanyName("Amazon");
+        interview.setCompanyName("hcl");
         interview.setDate("2025-02-19");
         interview.setFailedquestions("Explain polymorphism.");
         interview.setAnswers("Polymorphism allows different classes to be used interchangeably.");
