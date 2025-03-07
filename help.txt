@@ -6,3 +6,4 @@ in this repo having
 3. fileupload and thymeleaf
 4.actuator
 5.oneto many relationsships
+6.validations
