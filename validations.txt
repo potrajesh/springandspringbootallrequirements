@@ -1,0 +1,27 @@
+step 1: valid dependency get from spring.io
+
+step 2: add @valid at controller method.
+
+public class Usercontroller{
+public void createUser(@RequestBody @valid createUserRequest cr)
+}
+
+step 3://notnull///empty this all coming from javax.valid.constraints package.
+public class CreateUserRequest{
+
+@NotBlank(message="first name cannot be empty")
+@Size(min=2,max=50,message = "first name cannot shorter than 2 and longer than 50")
+private String firstName;
+
+
+@NotBlank(message="email cannot be empty")
+@Email(message="email cannot be empty")
+private String email;
+
+
+}
+
+step 4: adde in property file
+
+server.error.include-binding-errors=always
+server.error.include-message=always
