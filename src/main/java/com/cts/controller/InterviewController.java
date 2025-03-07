@@ -4,6 +4,7 @@ package com.cts.controller;
 import java.io.File;
 import java.util.Optional;
 
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class InterviewController {
     private InterviewRepo interviewRepo;
 
     @PostMapping("saveinterview")
-    public String saveInterview(@RequestBody Interview interview){
+    public String saveInterview(@RequestBody @Valid Interview interview){
     	interviewService.save(interview);
         return "record successfully saved into database";
     }
