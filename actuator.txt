@@ -1,0 +1,199 @@
+
+          org.springframework.boot
+step 1: spring-boot-starter-actuator
+
+step 2: we can see console logs after start springboot application.
+
+2025-02-22T17:57:17.578+05:30  INFO 18320 --- [springandspringbootallrequirements] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+
+step 3: application.properties
+
+management.endpoints.web.exposure.include=*
+
+again maven clean install
+run as java application
+
+in console its shows
+
+Exposing 14 endpoints beneath base path '/actuator'
+
+localhost:8090/actuator
+
+we will see all 13 endpoint
+===============================
+about /info endpoint
+
+localhost:8090/actuator/info
+
+
+add in property file:
+
+ management.info.env.enabled=true
+ info.app.name= spring and springboot requirements
+ info.app.description= requirements learn
+ info.app.version=1.0.0
+
+
+its shows above info like this
+
+// http://localhost:8090/actuator/info
+
+{
+  "app": {
+    "name": "spring and springboot requirements",
+    "description": "requirements learn",
+    "version": "1.0.0"
+  }
+}
+
+===============================
+
+
+about /health  endpoint:
+add below in prop file
+
+management.endpoint.health.show-details=always
+
+
+
+
+// http://localhost:8090/actuator/health
+
+{
+  "status": "UP",
+  "components": {
+    "db": {
+      "status": "UP",
+      "details": {
+        "database": "MySQL",
+        "validationQuery": "isValid()"
+      }
+    },
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 300539703296,
+        "free": 189339475968,
+        "threshold": 10485760,
+        "path": "C:\\Users\\Mr\\OneDrive\\Desktop\\spring mvc\\springandspringbootallrequirements\\springandspringbootallrequirements\\.",
+        "exists": true
+      }
+    },
+    "ping": {
+      "status": "UP"
+    }
+  }
+
+=========================
+
+/beans
+
+
+http://localhost:8090/actuator/beans
+
+  "interviewRepo": {
+          "aliases": [
+
+          ],
+          "scope": "singleton",
+          "type": "com.cts.dao.InterviewRepo",
+          "resource": "com.cts.dao.InterviewRepo defined in @EnableJpaRepositories declared on SpringandspringbootallrequirementsApplication",
+          "dependencies": [
+            "jpa.named-queries#0",
+            "jpa.InterviewRepo.fragments#0",
+            "jpaSharedEM_entityManagerFactory",
+            "jpaMappingContext"
+          ]
+        },
+
+========================
+
+/mappings   : inside predicate out endpoints shown.
+
+
+mappings": {
+        "dispatcherServlets": {
+          "dispatcherServlet": [
+            {
+"handler": "com.cts.controller.InterviewController#list(int, int)",
+              "predicate": "{GET [/nextpages]}",
+              "details": {
+                "handlerMethod": {
+                  "className": "com.cts.controller.InterviewController",
+                  "name": "list",
+                  "descriptor": "(II)Lorg/springframework/data/domain/Page;"
+                },
+                "requestMappingConditions": {
+                  "consumes": [
+
+                  ],
+                  "headers": [
+
+                  ],
+                  "methods": [
+                    "GET"
+                  ],
+                  "params": [
+
+                  ],
+                  "patterns": [
+                    "/nextpages"
+                  ],
+                  "produces": [
+
+                  ]
+                }
+              }
+            },
+
+==================================
+
+
+http://localhost:8090/actuator/metrics/jvm.memory.max
+
+memory related shows on here.
+
+
+=================================
+
+
+@trasactional(rollbackFor=paymentException.class)
+public void save()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
